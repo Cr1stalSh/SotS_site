@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-image {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;  
+    z-index: -1; 
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 30, 30, 0.3)
+    ); 
+    z-index: -1; 
+}
+
+.auth-container {
+    width: 400px;
+    background: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+}
+
+.form-box {
+    padding: 20px;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+}
+
+.form-header button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #888;
+    cursor: pointer;
+    padding: 10px 0;
+    transition: color 0.3s;
+}
+
+.form-header button.active {
+    color: #00b8b8;
+    border-bottom: 2px solid #00b8b8;
+}
+
+.auth-form h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #00b8b8;
+}
+
+.auth-form input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.auth-form input::placeholder {
+    color: #888;
+}
+
+.auth-form input:focus {
+    outline: 2px solid #00b8b8;
+}
+
+.btn {
+    padding: 10px;
+    background-color: #00b8b8;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #008e8e;
+}
+
+/* Скрытая форма */
+.auth-form.hidden {
+    opacity: 0;
+    display: none;
+    transform: translateX(50px);
+    pointer-events: none;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* Видимая форма (начальное состояние) */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* Анимация исчезновения */
+.auth-form.fade-out {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* Появляющаяся форма */
+.auth-form.fade-in {
+    opacity: 0;
+    pointer-events: none;
+    animation: fade 0.5s forwards;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.error-message {
+    color: #ff4d4d;
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.95rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.success-message {
+    color: #00b86e;
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.95rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
